@@ -1,0 +1,61 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+
+const EXPERIENCE = [
+	{
+		from: "Junio 2023",
+		title: "Desarrollador Frontend Junior en Grupo R5 Limitada",
+		responsabilities: [
+			"Agregar nuevas features a la web de venta de seguros (SOAT)",
+			"Mantener y mejorar el diseño de la página.",
+			"Agregar nuevas features al Design System de la empresa.",
+			"Hacer Unit Testing para el código existente y el nuevo que se implemente.",
+			"Agregar nuevas features al CRM interno de la empresa.",
+		],
+		achievementes: [
+			"Estuve a cargo del rediseño de la página web de la compañía, logrando una mejora sustancial en la experiencia del usuario.",
+			"Implementé tecnología de fingerprint en la página web para prevenir fraudes y asegurar transacciones libres de interferencias de terceros.",
+			"Contribuí al diseño y la implementación de nuevos componentes de input en el Design System de la empresa, mejorando la coherencia y eficiencia en la interfaz de usuario.",
+			"Refactoricé uno de los proyectos de la empresa mediante la aplicación de clean architecture, separando de manera efectiva la interfaz de usuario de la lógica de negocio para una mayor mantenibilidad y escalabilidad.",
+			"Desarrollé un paquete de configuración de Prettier y TypeScript, facilitando su implementación consistente en todos los proyectos de la empresa y mejorando la calidad del código en general.",
+		],
+		description:
+			"Mi responsabilidad principal fue mejorar el funnel de venta de seguros (SOAT), añadiendo nuevas características y manteniendo su diseño. Además, contribuí al enriquecimiento del Design System de la empresa y realicé pruebas unitarias para garantizar la calidad del código. Durante mi tiempo en la empresa, lideré el rediseño de la página web, implementé tecnología de fingerprint para mejorar la seguridad de las transacciones, y participé en la creación de nuevos componentes de input para el Design System. También, llevé a cabo la refactorización de un proyecto mediante la aplicación de clean architecture, y desarrollé un paquete de configuración de Prettier y TypeScript para mejorar la calidad del código en toda la empresa.",
+	},
+	{
+		from: "Noviembre 2019",
+		title: "Desarrollador Full Stack en Begranda INC S.A.S",
+		responsabilities: [
+			"Desarrollar nuevas features para el ERP Web de la empresa.",
+			"Desarrollar la nueva versión del ERP Web de la empresa.",
+			"Mantener y mejorar las funcionalidades del software actual.",
+			"Implementar integraciones con API’s propias y de terceros. Ej: shopify, ERP Web Begranda, aws, etc.",
+			"Implementación de pasarela de pagos.",
+			"Optimizar funcionalidades de los software desarrollados por la empresa.",
+			"Desarrollo de API's Restful.",
+		],
+		achievementes: [
+			"Aplicación de shopify para automatizar la sincronización del stock entre tiendas de Shopify y el software contable de la empresa.",
+			"Automatización en la generación de facturas electrónicas para las ventas generadas desde tiendas en shopify y woocommerce.",
+			"Desarrollo y despliegue de CMS, Frontend y Backend de software para empresa de turismo.",
+			"Implementación de WebSocket en el software contable de la empresa para mejorar la comunicación entre el servidor y el cliente en procesos de larga duración.",
+		],
+		description:
+			"Como Desarrollador de Software en Begranda Inc, fui responsable del desarrollo y mantenimiento del ERP Web, incluyendo la creación de nuevas funcionalidades y la implementación de la nueva versión del sistema. Además, integré diversas API y desarrollé pasarelas de pago, API's Restful y soluciones para la automatización de procesos, como la sincronización de stock entre tiendas de Shopify y el software contable, la generación automatizada de facturas electrónicas y la implementación de WebSocket para mejorar la comunicación en procesos prolongados. Estos logros mejoraron significativamente la eficiencia de los sistemas y optimizaron los procesos comerciales.",
+	},
+];
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700">
+	{
+		EXPERIENCE.map((item) => (
+			<ExperienceItem
+				title={item.title}
+				from={item.from}
+				responsabilities={item.responsabilities}
+				achievements={item.achievementes}
+				description={item.description}
+			/>
+		))
+	}
+</ol>
