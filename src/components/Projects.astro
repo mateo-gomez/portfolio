@@ -1,0 +1,89 @@
+---
+import ReactLogo from "../components/icons/React.astro";
+import DenoLogo from "../components/icons/Deno.astro";
+import MongodbLogo from "../components/icons/Mongodb.astro";
+import ExpoLogo from "../components/icons/Expo.astro";
+
+interface Tag {
+	name: string;
+	icon: (_props: Record<string, any>) => any;
+	class: string;
+}
+
+const TAGS: Record<string, Tag> = {
+	react: {
+		name: "React",
+		icon: ReactLogo,
+		class: "bg-[#232730] text-white",
+	},
+	reactNative: {
+		name: "React Native",
+		icon: ReactLogo,
+		class: "bg-[#232730] text-white",
+	},
+	deno: {
+		name: "Deno",
+		icon: DenoLogo,
+		class: "bg-white text-black",
+	},
+	mongodb: {
+		name: "MongoDB",
+		icon: MongodbLogo,
+		class: "bg-[#001e2b] text-white",
+	},
+    expo: {
+		name: "Expo",
+		icon: ExpoLogo,
+		class: "bg-white text-black",
+	},
+};
+
+const PROJECTS = [
+	{
+		title: "Phonebook R5",
+		description:
+			"Directiorio teléfonico personal. Creado desde cero con React.",
+		image: "/phonebook.jpg",
+		alt: "Captura de pantalla de aplicación web Phonebook R5",
+		tags: ["react"],
+	},
+	{
+		title: "Cuentas App",
+		description:
+			"App de finanzas personales para el registro de gastos. Creado desde cero React Native, Expo, Deno y MongoDB.",
+		image: "/cuentas.jpg",
+		alt: "Captura de pantalla de aplicación Cuentas",
+		tags: ["reactNative", "deno", "mongodb", "expo"],
+	},
+];
+---
+
+<div class="flex flex-col items-center gap-y-16">
+	{
+		PROJECTS.map(({ title, description, image, alt, tags }) => (
+			<article class="flex flex-col md:flex-row gap-x-8">
+				<div class="w-full md:w-1/2">
+					<h3 class="text-lg font-bold mb-4">{title}</h3>
+					<p class="opacity-80">{description}</p>
+					<ul class="mt-6 flex flex-row flex-wrap gap-4">
+						{tags.map((tagName) => {
+							const tag = TAGS[tagName];
+
+							return (
+								<li>
+									<span
+										class={`flex items-center gap-x-2 ${tag.class} text-xs rounded-full py-1 px-4`}
+									>
+										<tag.icon class="size-4 inline" />
+										{tag.name}
+									</span>
+								</li>
+							);
+						})}
+					</ul>
+				</div>
+				<img class="rounded-lg w-full md:w-1/2" src={image} alt={alt} />
+			</article>
+		))
+	}
+</div>
