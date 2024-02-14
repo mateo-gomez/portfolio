@@ -95,8 +95,7 @@ const PROJECTS = [
 			<article class="flex flex-col md:flex-row gap-8">
 				<div class="w-full md:w-1/2">
 					<h3 class="text-lg font-bold mb-4">{title}</h3>
-					<p class="opacity-80">{description}</p>
-					<ul class="mt-6 flex flex-row flex-wrap gap-4">
+					<ul class="flex flex-row flex-wrap gap-4">
 						{tags.map((tagName) => {
 							const tag = TAGS[tagName];
 
@@ -112,8 +111,11 @@ const PROJECTS = [
 							);
 						})}
 					</ul>
+
+					<p class="mt-6 opacity-80">{description}</p>
 				</div>
-				<img class="rounded-lg w-full md:w-1/2" src={image} alt={alt} />
+
+				<img class="rounded-lg w-full md:h-64 md:w-80 object-top" src={image} alt={alt} />
 			</article>
 		))
 	}
