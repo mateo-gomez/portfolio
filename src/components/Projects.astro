@@ -6,6 +6,10 @@ import ExpoLogo from "../components/icons/Expo.astro";
 import OpenAILogo from "../components/icons/OpenAI.astro";
 import ElectronLogo from "../components/icons/Electron.astro";
 import PlayhtLogo from "../components/icons/Playht.astro";
+import GithubLogo from "../components/icons/Github.astro";
+import LinkIcon from "../components/icons/Link.astro";
+import Pill from '../components/Pill.astro'
+import BadgeLink from '../components/BadgeLink.astro'
 
 interface Tag {
 	name: string;
@@ -69,6 +73,8 @@ const PROJECTS = [
 		image: "/phonebook.jpg",
 		alt: "Captura de pantalla de aplicación web Phonebook R5",
 		tags: ["react"],
+		github: 'https://github.com/mateo-gomez/phonebook-r5',
+		preview: 'https://phonebook-r5.netlify.app/'
 	},
 	{
 		title: "Cuentas App",
@@ -77,21 +83,25 @@ const PROJECTS = [
 		image: "/cuentas.jpg",
 		alt: "Captura de pantalla de aplicación Cuentas",
 		tags: ["reactNative", "deno", "mongodb", "expo"],
+		github: 'https://github.com/mateo-gomez/cuentas',
+		preview: ''
 	},
 	{
 		title: "HerIA",
 		description:
 			'Aplicación de escritorio para hablar por voz con una Inteligencia Artificial inspirado en la pelicula "Her". Creada con Electron, apoyada con el uso del API Whisper y ChatGPT de OpenAI, además del uso de PlayHT para la generación de voz de la IA.',
-		image: "/her-ia5.jpg",
+		image: "/her-ia.jpg",
 		alt: "Captura de pantalla de herIA",
 		tags: ["electron", "whisper", "chatgpt", "playht"],
+		github: 'https://github.com/mateo-gomez/her-ia',
+		preview: ''
 	},
 ];
 ---
 
 <div class="flex flex-col items-center gap-y-16">
 	{
-		PROJECTS.map(({ title, description, image, alt, tags }) => (
+		PROJECTS.map(({ title, description, image, alt, tags, github, preview }) => (
 			<article class="flex flex-col md:flex-row gap-8">
 				<div class="w-full md:w-1/2">
 					<h3 class="text-lg font-bold mb-4">{title}</h3>
@@ -113,6 +123,25 @@ const PROJECTS = [
 					</ul>
 
 					<p class="mt-6 opacity-80">{description}</p>
+
+					<ul class="mt-6 flex gap-4">
+						<li>
+							<BadgeLink href={github}>
+								<GithubLogo class="size-6"/>
+								Code
+							</BadgeLink>
+						</li>
+						{
+							preview ?
+							<li>
+								<BadgeLink href={preview}>
+									<LinkIcon class="size-6"/>
+									Preview
+								</BadgeLink>
+							</li>
+							: null
+						}
+					</ul>
 				</div>
 
 				<img class="rounded-lg w-full md:h-64 md:w-80 object-top" src={image} alt={alt} />
